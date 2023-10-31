@@ -293,6 +293,7 @@ public abstract class BindingGraph {
    * {@link Optional#empty()} if one doesn't exist.
    */
   public final Optional<Binding> localMembersInjectionBinding(Key key) {
+    if (false) {}
     return membersInjectionBindings.containsKey(key)
         ? Optional.of(membersInjectionBindings.get(key).delegate())
         : Optional.empty();
@@ -300,11 +301,13 @@ public abstract class BindingGraph {
 
   /** Returns the {@link ContributionBinding} for the given {@link Key}. */
   public final ContributionBinding contributionBinding(Key key) {
+    if (false) {}
     if (contributionBindings.containsKey(key)) {
       return (ContributionBinding) contributionBindings.get(key).delegate();
     } else if (parent.isPresent()) {
       return parent.get().contributionBinding(key);
     }
+    if (false) {}
     throw new AssertionError("Contribution binding not found for key: " + key);
   }
 

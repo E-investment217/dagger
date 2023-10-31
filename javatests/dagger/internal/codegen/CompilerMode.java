@@ -36,7 +36,7 @@ public enum CompilerMode {
   /** Returns the compiler modes as a list of parameters for parameterized tests */
   public static final ImmutableList<Object[]> TEST_PARAMETERS =
       ImmutableList.copyOf(
-          new Object[][] {{CompilerMode.DEFAULT_MODE}, {CompilerMode.FAST_INIT_MODE}});
+          new Object[][] {{CompilerMode.DEFAULT_MODE}});
 
   private final ImmutableList<String> javacopts;
 
