@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Dagger Authors.
+ * Copyright (C) 2023 The Dagger Authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import com.android.build.api.variant.Component
 import java.io.File
 import org.gradle.api.Project
 
-internal class ComponentCompatApi72Impl(private val component: Component) : ComponentCompat() {
+internal class ComponentCompatApi83Impl(private val component: Component) : ComponentCompat() {
 
   override val name: String
     get() = component.name
@@ -45,6 +45,11 @@ internal class ComponentCompatApi72Impl(private val component: Component) : Comp
     component.instrumentation.setAsmFramesComputationMode(mode)
   }
 
-  override fun getJavaCompileClassesDir(project: Project): File =
-    project.layout.buildDirectory.dir("intermediates/javac/${component.name}/classes").get().asFile
+  override fun getJavaCompileClassesDir(project: Project): File {
+    // TODO(kuanyingchou): replace hardcoded path with Artifacts API.
+    val task = "compile${component.name.replaceFirstChar { it.uppercase() }}JavaWithJavac"
+    return project.layout.buildDirectory.dir(
+      "intermediates/javac/${component.name}/${task}/classes"
+    ).get().asFile
+  }
 }

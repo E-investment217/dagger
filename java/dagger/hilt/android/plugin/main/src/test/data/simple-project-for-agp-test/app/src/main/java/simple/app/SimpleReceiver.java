@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Dagger Authors.
+ * Copyright (C) 2023 The Dagger Authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,27 +14,15 @@
  * limitations under the License.
  */
 
-plugins {
-    id 'com.android.library'
-    id 'com.google.dagger.hilt.android'
-}
+package simple.app;
 
-android {
-    compileSdkVersion 32
-    namespace "simple.library"
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import dagger.hilt.android.AndroidEntryPoint;
 
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 32
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-}
-
-dependencies {
-    implementation 'com.google.dagger:hilt-android:LOCAL-SNAPSHOT'
-    annotationProcessor 'com.google.dagger:hilt-compiler:LOCAL-SNAPSHOT'
+@AndroidEntryPoint
+class SimpleReceiver extends BroadcastReceiver {
+  @Override
+  public void onReceive(Context context, Intent intent) {}
 }

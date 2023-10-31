@@ -86,7 +86,7 @@ tasks.withType(PluginUnderTestMetadata.class).named("pluginUnderTestMetadata").c
 }
 
 kotlin {
-  jvmToolchain(11)
+  jvmToolchain(17)
 }
 
 compileKotlin {

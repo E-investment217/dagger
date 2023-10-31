@@ -21,7 +21,7 @@ plugins {
 
 android {
     compileSdkVersion 32
-    buildToolsVersion "32.0.0"
+    namespace "simple.app"
 
     defaultConfig {
         applicationId "simple.app"

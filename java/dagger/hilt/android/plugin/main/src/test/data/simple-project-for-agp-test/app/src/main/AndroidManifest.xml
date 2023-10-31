@@ -16,5 +16,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="simple.app">
   <application android:name=".SimpleApp" android:label="Flavored App">
+    <receiver android:name=".SimpleReceiver" android:exported="false">
+      <intent-filter>
+        <action android:name="TODO" />
+      </intent-filter>
+    </receiver>
   </application>
 </manifest>
